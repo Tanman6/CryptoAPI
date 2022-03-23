@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.810.20
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoAPIPull", "CryptoAPIPull\CryptoAPIPull.csproj", "{09E60098-B821-4729-96BE-AC3A61125857}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{09E60098-B821-4729-96BE-AC3A61125857}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09E60098-B821-4729-96BE-AC3A61125857}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09E60098-B821-4729-96BE-AC3A61125857}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09E60098-B821-4729-96BE-AC3A61125857}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D96543AC-7476-4B6E-AD5B-D4D00EC3913B}
+	EndGlobalSection
+EndGlobal
