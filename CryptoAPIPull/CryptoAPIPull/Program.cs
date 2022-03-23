@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net.Http;
 using Newtonsoft.Json.Linq;
+using System.Linq;
 using RestSharp;
 
 
@@ -28,7 +29,7 @@ namespace CryptoAPI
             {
                 response.EnsureSuccessStatusCode();
                 var binanceBody = response.Content.ReadAsStringAsync().Result;
-                var binanceParse = JArray.Parse(binanceBody);
+                var binanceParse = JArray.Parse(binanceBody).ToString();
 
                 Console.WriteLine(binanceParse);
 
