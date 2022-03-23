@@ -15,6 +15,8 @@ namespace CryptoAPI
             // gets all prices formatted with initial coin followed by the coin the price is exchanged to
             // example: symbol "ETHBTC" is how much bitcoin you can trade for one Ethereum token
 
+            // need to grab all data symbols ending in UDS and USDT
+
             var client = new HttpClient();
             var request = new HttpRequestMessage
             {
