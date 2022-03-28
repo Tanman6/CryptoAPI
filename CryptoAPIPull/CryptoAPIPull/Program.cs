@@ -29,9 +29,31 @@ namespace CryptoAPI
             {
                 response.EnsureSuccessStatusCode();
                 var binanceBody = response.Content.ReadAsStringAsync().Result;
-                var binanceParse = JArray.Parse(binanceBody).ToString();
+                var binanceParse = JArray.Parse(binanceBody)
+                    //.ToArray()
+                    //.Where(item => ((dynamic)item).symbol.ToString().EndsWith("USD") || ((dynamic)item).symbol.ToString().EndsWith("USDT"))
+                    //.OrderBy(x => x.ToString());
 
-                Console.WriteLine(binanceParse);
+
+                    .ToArray()
+                    .Where(item => ((dynamic)item).symbol.ToString().StartsWith("USD") || ((dynamic)item).symbol.ToString().StartsWith("USDT"))
+                    .OrderBy(x => x.ToString());
+
+                Console.WriteLine(binanceParse.ToArray()[0]);
+                Console.WriteLine(binanceParse.ToArray()[2]);
+                Console.WriteLine(binanceParse.ToArray()[9]);
+                Console.WriteLine(binanceParse.ToArray()[13]);
+                Console.WriteLine(binanceParse.ToArray()[14]);
+                Console.WriteLine(binanceParse.ToArray()[15]);
+                Console.WriteLine(binanceParse.ToArray()[16]);
+                Console.WriteLine(binanceParse.ToArray()[17]);
+                Console.WriteLine(binanceParse.ToArray()[18]);
+                Console.WriteLine(binanceParse.ToArray()[19]);
+                Console.WriteLine(binanceParse.ToArray()[20]);
+                Console.WriteLine(binanceParse.ToArray()[21]);
+                Console.WriteLine(binanceParse.ToArray()[22]);
+                Console.WriteLine(binanceParse.ToArray()[23]);
+                Console.WriteLine(binanceParse.ToArray()[24]);
 
 
             }
@@ -50,7 +72,7 @@ namespace CryptoAPI
                 var coinbaseBody = response.Content.ReadAsStringAsync().Result;
                 var coinbaseParseData = JObject.Parse(coinbaseBody).GetValue("data").ToString();
                 var coinbaseParseRates = JObject.Parse(coinbaseParseData).GetValue("rates").ToString();
-                Console.WriteLine(coinbaseParseRates);
+                Console.WriteLine(coinbaseParseRates.ToArray());
             }
 
 
