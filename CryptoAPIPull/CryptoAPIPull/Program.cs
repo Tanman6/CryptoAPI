@@ -30,9 +30,6 @@ namespace CryptoAPI
                 response.EnsureSuccessStatusCode();
                 var binanceBody = response.Content.ReadAsStringAsync().Result;
                 var binanceParse = JArray.Parse(binanceBody)
-                    //.ToArray()
-                    //.Where(item => ((dynamic)item).symbol.ToString().EndsWith("USD") || ((dynamic)item).symbol.ToString().EndsWith("USDT"))
-                    //.OrderBy(x => x.ToString());
 
 
                     .ToArray()
@@ -65,14 +62,53 @@ namespace CryptoAPI
                 Method = HttpMethod.Get,
                 RequestUri = new Uri("https://api.coinbase.com/v2/exchange-rates?currency=USDC")
             };
-            //pulls coinbase prices. Amount 1 USD is currently worth per coin
+            //pulls coinbase prices. Amount 1 Token is currently worth in USD
             using (var response = client2.Send(request2))
             {
                 response.EnsureSuccessStatusCode();
                 var coinbaseBody = response.Content.ReadAsStringAsync().Result;
                 var coinbaseParseData = JObject.Parse(coinbaseBody).GetValue("data").ToString();
                 var coinbaseParseRates = JObject.Parse(coinbaseParseData).GetValue("rates").ToString();
-                Console.WriteLine(coinbaseParseRates.ToArray());
+                var zarString = JObject.Parse(coinbaseParseRates).GetValue("ZAR").ToString();
+                var paxString  = JObject.Parse(coinbaseParseRates).GetValue("PAX").ToString();
+                var brlString = JObject.Parse(coinbaseParseRates).GetValue("BRL").ToString();
+                var daiString = JObject.Parse(coinbaseParseRates).GetValue("DAI").ToString();
+                var gyenString = JObject.Parse(coinbaseParseRates).GetValue("GYEN").ToString();
+                var idrString = JObject.Parse(coinbaseParseRates).GetValue("IDR").ToString();
+                var ngnString = JObject.Parse(coinbaseParseRates).GetValue("NGN").ToString();
+                var rubString = JObject.Parse(coinbaseParseRates).GetValue("RUB").ToString();
+                var tryString = JObject.Parse(coinbaseParseRates).GetValue("TRY").ToString();
+                var uahString = JObject.Parse(coinbaseParseRates).GetValue("UAH").ToString();
+
+
+
+                var PAX = Convert.ToDouble(paxString);
+                var BRL = Convert.ToDouble(brlString);
+                var DAI = Convert.ToDouble(daiString);
+                var GYEN = Convert.ToDouble(gyenString);
+                var IDR = Convert.ToDouble(idrString);
+                var NGN = Convert.ToDouble(ngnString);
+                var RUB = Convert.ToDouble(rubString);
+                var TRY = Convert.ToDouble(tryString);
+                var UAH = Convert.ToDouble(uahString);
+                var ZAR = Convert.ToDouble(zarString);
+
+                Console.WriteLine(PAX);
+                Console.WriteLine(BRL);
+                Console.WriteLine(DAI);
+                Console.WriteLine(GYEN);
+                Console.WriteLine(IDR);
+                Console.WriteLine(NGN);
+                Console.WriteLine(RUB);
+                Console.WriteLine(TRY);
+                Console.WriteLine(UAH);
+                Console.WriteLine(ZAR);
+              
+
+                
+
+
+
             }
 
 
